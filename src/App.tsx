@@ -21,6 +21,8 @@ import {
 import { type FormEvent, type ReactNode, useEffect, useState } from 'react';
 import './styles.css';
 
+const COOKIE_CONSENT_KEY = 'msk-cookie-consent';
+
 const galleryImages = [
   'IMG_0185.jpeg',
   'IMG_0186.jpeg',
@@ -609,14 +611,10 @@ function Footer() {
 }
 
 function CookieBanner() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    setVisible(localStorage.getItem('msk-cookie-consent') !== 'accepted');
-  }, []);
+  const [visible, setVisible] = useState(() => localStorage.getItem(COOKIE_CONSENT_KEY) !== 'accepted');
 
   function acceptCookies() {
-    localStorage.setItem('msk-cookie-consent', 'accepted');
+    localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted');
     setVisible(false);
   }
 
