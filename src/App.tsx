@@ -407,7 +407,7 @@ function Gallery() {
               transition={{ duration: 0.45, delay: index * 0.03 }}
             >
               <img
-                src={`/gallery/${image}`}
+                src={`/Gallery/${image}`}
                 alt={`Referenzprojekt von MSK Montage Service Kohlert ${index + 1}`}
                 loading={index < 2 ? 'eager' : 'lazy'}
               />
