@@ -732,15 +732,47 @@ main {
   aspect-ratio: 1 / 1;
 }
 
-.gallery-item img {
+.lazy-img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(110deg, #dbe8f1 18%, #eaf3fa 36%, #dbe8f1 54%);
+  background-size: 220% 100%;
+  animation: lazy-shimmer 1.6s linear infinite;
+}
+
+.lazy-img.is-loaded {
+  background: none;
+  animation: none;
+}
+
+.lazy-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.55s ease, transform 0.7s ease;
 }
 
-.gallery-item:hover img {
-  transform: scale(1.05);
+.lazy-img.is-loaded img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gallery-item:hover .lazy-img img {
+  transform: scale(1.06);
+}
+
+@keyframes lazy-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lazy-img { animation: none; background: #dbe8f1; }
+  .lazy-img img { transition: opacity 0.2s ease; transform: none !important; }
 }
 
 /* ---------- Reviews ---------- */

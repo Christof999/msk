@@ -18,7 +18,7 @@ import {
   Trees,
   X,
 } from 'lucide-react';
-import { type FormEvent, type ReactNode, useEffect, useState } from 'react';
+import { type FormEvent, type ReactNode, useEffect, useRef, useState } from 'react';
 import './styles.css';
 
 const COOKIE_CONSENT_KEY = 'msk-cookie-consent';
@@ -73,26 +73,26 @@ const services = [
   {
     icon: Fence,
     title: 'Zaunbau & Sichtschutz',
-    text: 'Robuste Zaunanlagen, Tore und Sichtschutzloesungen passend zu Haus, Garten und Bestand.',
+    text: 'Robuste Zaunanlagen, Tore und Sichtschutzlösungen passend zu Haus, Garten und Bestand.',
   },
   {
     icon: Home,
-    title: 'Ueberdachungen',
-    text: 'Terrassenueberdachungen, Kaltwintergaerten und wetterfeste Konstruktionen aus einer Hand.',
+    title: 'Überdachungen',
+    text: 'Terrassenüberdachungen, Kaltwintergärten und wetterfeste Konstruktionen aus einer Hand.',
   },
   {
     icon: DoorOpen,
     title: 'Innenausbau',
-    text: 'Tueren, Boeden, Fenster, Rolllaeden und Schreinerarbeiten mit Blick fuer Details.',
+    text: 'Türen, Böden, Fenster, Rollläden und Schreinerarbeiten mit Blick für Details.',
   },
   {
     icon: Hammer,
     title: 'Alles montieren',
-    text: 'Von der Einzelmontage bis zur Komplettloesung: MSK packt flexibel an, koordiniert Gewerke und liefert sauber ab.',
+    text: 'Von der Einzelmontage bis zur Komplettlösung: MSK packt flexibel an, koordiniert Gewerke und liefert sauber ab.',
   },
   {
     icon: Trees,
-    title: 'Aussenbereich komplett',
+    title: 'Außenbereich komplett',
     text: 'Balkon, Garten, Terrasse und Fassade werden funktional, langlebig und optisch stimmig umgesetzt.',
   },
 ];
@@ -100,25 +100,25 @@ const services = [
 const reviews = [
   {
     quote:
-      'Kaltwintergarten mit Balkon realisiert - sauber, professionell und mit einem starken Team umgesetzt.',
-    name: 'Hans-Joerg Schubert',
+      'Kaltwintergarten mit Balkon realisiert – sauber, professionell und mit einem starken Team umgesetzt.',
+    name: 'Hans-Jörg Schubert',
   },
   {
     quote:
-      'Eine komplexe Aufgabe zu unserer vollsten Zufriedenheit ausgefuehrt. Sehr empfehlenswert.',
+      'Eine komplexe Aufgabe zu unserer vollsten Zufriedenheit ausgeführt. Sehr empfehlenswert.',
     name: 'Sebastian Kuhn',
   },
   {
     quote:
       'Super Team. Schnell, freundlich und sehr sauber gearbeitet. Mit bestem Gewissen weiterzuempfehlen.',
-    name: 'Monika Haefner',
+    name: 'Monika Häfner',
   },
 ];
 
 const stats = [
   { value: '20+', label: 'Jahre Erfahrung im Schreinerhandwerk' },
   { value: '5,0', label: 'Google-Bewertung aus Kundenstimmen' },
-  { value: '2019', label: 'als Familienbetrieb selbststaendig' },
+  { value: '2019', label: 'als Familienbetrieb selbstständig' },
 ];
 
 function App() {
@@ -191,7 +191,7 @@ function Header({
         </a>
 
         <button className="menu-toggle" type="button" onClick={onToggleMenu} aria-expanded={menuOpen} aria-controls="mobile-menu">
-          <span className="sr-only">Menue oeffnen oder schliessen</span>
+          <span className="sr-only">Menü öffnen oder schließen</span>
           {menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
 
@@ -268,7 +268,7 @@ function Hero() {
             animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             transition={{ delay: 0.08, duration: 0.6 }}
           >
-            Montage, die haelt: Balkone, Zaeune, Ueberdachungen und Innenausbau.
+            Montage, die hält: Balkone, Zäune, Überdachungen und Innenausbau.
           </m.h1>
           <m.p
             className="hero-lead"
@@ -277,8 +277,8 @@ function Hero() {
             transition={{ delay: 0.16, duration: 0.6 }}
           >
             MSK Montage Service Kohlert verbindet 20 Jahre Schreinerhandwerk mit flexibler Montagepower.
-            Ob Grossprojekt, Renovierung oder knifflige Einzelmontage: Wir koennen alles montieren und
-            organisieren auf Wunsch die passende Komplettloesung.
+            Ob Großprojekt, Renovierung oder knifflige Einzelmontage: Wir können alles montieren und
+            organisieren auf Wunsch die passende Komplettlösung.
           </m.p>
           <m.div
             className="hero-actions"
@@ -298,7 +298,7 @@ function Hero() {
               <BadgeCheck aria-hidden="true" /> Saubere Montage
             </li>
             <li>
-              <BadgeCheck aria-hidden="true" /> Zuverlaessige Abwicklung
+              <BadgeCheck aria-hidden="true" /> Zuverlässige Abwicklung
             </li>
             <li>
               <BadgeCheck aria-hidden="true" /> Regional verankert
@@ -322,7 +322,7 @@ function Hero() {
               ))}
             </span>
             <strong>5,0 Google-Bewertung</strong>
-            <small>gelobt fuer professionelle Arbeit, Zuverlaessigkeit und saubere Ergebnisse</small>
+            <small>gelobt für professionelle Arbeit, Zuverlässigkeit und saubere Ergebnisse</small>
           </div>
         </m.div>
       </div>
@@ -351,8 +351,8 @@ function Services() {
       <div className="container">
         <SectionIntro
           eyebrow="Leistungsspektrum"
-          title="Ein Team fuer fast jede Montageaufgabe."
-          text="Vom Balkon bis zum Boden: MSK denkt praktisch, arbeitet praezise und bleibt ansprechbar, bis alles passt."
+          title="Ein Team für fast jede Montageaufgabe."
+          text="Vom Balkon bis zum Boden: MSK denkt praktisch, arbeitet präzise und bleibt ansprechbar, bis alles passt."
         />
         <div className="service-grid">
           {services.map((service, index) => {
@@ -375,7 +375,7 @@ function Process() {
   const steps = [
     'Vor Ort verstehen, was wirklich gebraucht wird.',
     'Material, Gewerke und Ablauf sinnvoll koordinieren.',
-    'Sauber montieren, pruefen und besenrein uebergeben.',
+    'Sauber montieren, prüfen und besenrein übergeben.',
   ];
 
   return (
@@ -385,8 +385,8 @@ function Process() {
           <p className="eyebrow">Arbeitsweise</p>
           <h2 id="process-title">Handwerklich stark, pragmatisch organisiert.</h2>
           <p>
-            Sebastian Kohlert und Team stehen fuer klare Absprachen, belastbare Loesungen und ein
-            Netzwerk fuer Komplettprojekte. So bleibt die Baustelle planbar und das Ergebnis hochwertig.
+            Sebastian Kohlert und Team stehen für klare Absprachen, belastbare Lösungen und ein
+            Netzwerk für Komplettprojekte. So bleibt die Baustelle planbar und das Ergebnis hochwertig.
           </p>
         </div>
         <ol className="steps">
@@ -408,8 +408,8 @@ function Gallery() {
       <div className="container">
         <SectionIntro
           eyebrow="Projektgalerie"
-          title="Echte Arbeiten aus Montage, Aussenbereich und Ausbau."
-          text="Alle im Repository vorhandenen Bilder werden als Referenzen gezeigt und geben einen Eindruck von Balkon-, Aussenbereich- und Montagearbeiten."
+          title="Echte Arbeiten aus Montage, Außenbereich und Ausbau."
+          text="Alle im Repository vorhandenen Bilder werden als Referenzen gezeigt und geben einen Eindruck von Balkon-, Außenbereich- und Montagearbeiten."
         />
         <div className="gallery-grid">
           {galleryImages.map((image, index) => (
@@ -419,12 +419,12 @@ function Gallery() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.45, delay: index * 0.03 }}
+              transition={{ duration: 0.45, delay: Math.min(index, 8) * 0.03 }}
             >
-              <img
+              <LazyImage
                 src={`/Gallery/${image}`}
                 alt={`Referenzprojekt von MSK Montage Service Kohlert ${index + 1}`}
-                loading={index < 2 ? 'eager' : 'lazy'}
+                eager={index < 2}
               />
             </m.figure>
           ))}
@@ -434,14 +434,55 @@ function Gallery() {
   );
 }
 
+function LazyImage({ src, alt, eager = false }: { src: string; alt: string; eager?: boolean }) {
+  const wrapperRef = useRef<HTMLSpanElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(eager);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (eager || shouldLoad) return;
+    const el = wrapperRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setShouldLoad(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '400px 0px' },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [eager, shouldLoad]);
+
+  return (
+    <span ref={wrapperRef} className={`lazy-img${loaded ? ' is-loaded' : ''}`}>
+      {shouldLoad ? (
+        <img
+          src={src}
+          alt={alt}
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+          onLoad={() => setLoaded(true)}
+        />
+      ) : null}
+    </span>
+  );
+}
+
 function Reviews() {
   return (
     <section className="reviews section-pad" id="bewertungen" aria-labelledby="reviews-title">
       <div className="container">
         <SectionIntro
           eyebrow="Kundenstimmen"
-          title="Zuverlaessigkeit, Tempo und saubere Arbeit werden besonders oft genannt."
-          text="Auszuege aus oeffentlichen Google-Rezensionen, inhaltlich gekuerzt fuer die Website."
+          title="Zuverlässigkeit, Tempo und saubere Arbeit werden besonders oft genannt."
+          text="Auszüge aus öffentlichen Google-Rezensionen, inhaltlich gekürzt für die Website."
         />
         <div className="review-grid">
           {reviews.map((review) => (
@@ -474,10 +515,10 @@ function Contact() {
       <div className="container contact-grid">
         <div>
           <p className="eyebrow">Kontakt</p>
-          <h2 id="contact-title">Erzaehlen Sie uns, was montiert werden soll.</h2>
+          <h2 id="contact-title">Erzählen Sie uns, was montiert werden soll.</h2>
           <p>
             Die Kontaktseite ist als Dummy vorbereitet. Telefonnummer und Standort sind bereits sichtbar,
-            das Formular kann spaeter an E-Mail, CRM oder ein Backend angebunden werden.
+            das Formular kann später an E-Mail, CRM oder ein Backend angebunden werden.
           </p>
           <div className="contact-cards">
             <a href="tel:+491758676763">
@@ -498,7 +539,7 @@ function Contact() {
               <MapPin aria-hidden="true" />
               <span>
                 <strong>Standort</strong>
-                Dr.-Mueller-Str. 26 a, 91746 Weidenbach
+                Dr.-Müller-Str. 26 a, 91746 Weidenbach
               </span>
             </a>
           </div>
@@ -518,8 +559,8 @@ function Contact() {
             <select name="project" defaultValue="Montage">
               <option>Montage</option>
               <option>Balkon</option>
-              <option>Zaun / Aussenbereich</option>
-              <option>Ueberdachung</option>
+              <option>Zaun / Außenbereich</option>
+              <option>Überdachung</option>
               <option>Innenausbau</option>
             </select>
           </label>
@@ -532,7 +573,7 @@ function Contact() {
           </button>
           {submitted ? (
             <p className="form-note" role="status">
-              Danke! Diese Demo speichert noch keine Daten. Die Formularanbindung kann im naechsten Schritt erfolgen.
+              Danke! Diese Demo speichert noch keine Daten. Die Formularanbindung kann im nächsten Schritt erfolgen.
             </p>
           ) : null}
         </form>
@@ -548,20 +589,20 @@ function LegalPage({ type }: { type: 'privacy' | 'imprint' }) {
     <section className="legal section-pad">
       <div className="container narrow">
         <p className="eyebrow">Dummy-Seite</p>
-        <h1>{isPrivacy ? 'Datenschutzerklaerung' : 'Impressum'}</h1>
+        <h1>{isPrivacy ? 'Datenschutzerklärung' : 'Impressum'}</h1>
         <div className="legal-card">
           {isPrivacy ? (
             <>
               <p>
-                Diese Datenschutzerklaerung ist ein Platzhalter und muss vor Veroeffentlichung juristisch
-                geprueft und an die tatsaechlichen Dienste angepasst werden.
+                Diese Datenschutzerklärung ist ein Platzhalter und muss vor Veröffentlichung juristisch
+                geprüft und an die tatsächlichen Dienste angepasst werden.
               </p>
               <h2>Verantwortlicher</h2>
-              <p>MSK Montage Service Kohlert, Dr.-Mueller-Str. 26 a, 91746 Weidenbach.</p>
+              <p>MSK Montage Service Kohlert, Dr.-Müller-Str. 26 a, 91746 Weidenbach.</p>
               <h2>Kontaktformular</h2>
               <p>
                 Das aktuelle Demo-Formular versendet und speichert keine personenbezogenen Daten. Bei einer
-                spaeteren Backend-Anbindung sind Zweck, Rechtsgrundlage und Speicherdauer zu ergaenzen.
+                späteren Backend-Anbindung sind Zweck, Rechtsgrundlage und Speicherdauer zu ergänzen.
               </p>
               <h2>Cookies</h2>
               <p>
@@ -572,14 +613,14 @@ function LegalPage({ type }: { type: 'privacy' | 'imprint' }) {
           ) : (
             <>
               <p>
-                Angaben gemaess § 5 TMG. Dieser Inhalt ist ein Dummy und muss vor Livegang final geprueft
+                Angaben gemäß § 5 TMG. Dieser Inhalt ist ein Dummy und muss vor Livegang final geprüft
                 werden.
               </p>
               <h2>MSK Montage Service Kohlert</h2>
               <p>
                 Sebastian Kohlert
                 <br />
-                Dr.-Mueller-Str. 26 a
+                Dr.-Müller-Str. 26 a
                 <br />
                 91746 Weidenbach
               </p>
@@ -589,10 +630,10 @@ function LegalPage({ type }: { type: 'privacy' | 'imprint' }) {
                 <br />
                 E-Mail: kontakt@example.com
               </p>
-              <h2>Haftung fuer Inhalte</h2>
+              <h2>Haftung für Inhalte</h2>
               <p>
-                Als Diensteanbieter sind wir fuer eigene Inhalte verantwortlich. Dieser Abschnitt ist als
-                Platzhalter fuer die finale rechtliche Fassung vorgesehen.
+                Als Diensteanbieter sind wir für eigene Inhalte verantwortlich. Dieser Abschnitt ist als
+                Platzhalter für die finale rechtliche Fassung vorgesehen.
               </p>
             </>
           )}
@@ -608,12 +649,12 @@ function Footer() {
       <div className="container footer-grid">
         <div>
           <img src="/brand/msk-logo.svg" alt="" width="72" height="72" />
-          <p>MSK Montage Service Kohlert - Montage, Schreinerhandwerk und Komplettloesungen aus Weidenbach.</p>
+          <p>MSK Montage Service Kohlert – Montage, Schreinerhandwerk und Komplettlösungen aus Weidenbach.</p>
         </div>
         <div>
           <h2>Kontakt</h2>
           <a href="tel:+491758676763">0175 8676763</a>
-          <span>Dr.-Mueller-Str. 26 a, 91746 Weidenbach</span>
+          <span>Dr.-Müller-Str. 26 a, 91746 Weidenbach</span>
         </div>
         <div>
           <h2>Rechtliches</h2>
@@ -648,7 +689,7 @@ function CookieBanner() {
           <ShieldCheck aria-hidden="true" /> Cookie-Hinweis
         </h2>
         <p>
-          Diese Demo nutzt nur notwendige lokale Speicherung fuer Ihre Cookie-Entscheidung. Kein Tracking,
+          Diese Demo nutzt nur notwendige lokale Speicherung für Ihre Cookie-Entscheidung. Kein Tracking,
           keine externen Marketing-Cookies.
         </p>
       </div>

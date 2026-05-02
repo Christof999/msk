@@ -1,15 +1,85 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 760" role="img" aria-labelledby="title desc">
-  <title id="title">MSK Montage Service Kohlert Logo</title>
-  <desc id="desc">Abstraktes MSK Signet in Blau und Grau, inspiriert vom Kundenlogo.</desc>
-  <rect width="760" height="760" fill="#f8fbff"/>
-  <path d="M112 553V267l72-72v288h360v70H112Z" fill="#8f9190"/>
-  <path d="M169 202 266 105c56-56 147-56 203 0l145 145c56 56 56 147 0 203l-97 97-64-64 94-94c21-21 21-56 0-77L404 172c-21-21-56-21-77 0L232 267 169 202Z" fill="#5b9bd4"/>
-  <path d="M332 263 200 395l-51-51 132-132c14-14 37-14 51 0s14 37 0 51Z" fill="#f8fbff"/>
-  <path d="M443 374 310 507l-51-51 133-133c14-14 37-14 51 0s14 37 0 51Z" fill="#f8fbff"/>
-  <path d="M522 97c100 14 182 92 201 191l-52 52-201-201 52-42Z" fill="#5b9bd4"/>
-  <path d="M563 492h142v75H641v83h-78V492Z" fill="#5b9bd4"/>
-  <path d="M604 183h42v42h-42z" fill="#f8fbff" transform="rotate(45 625 204)"/>
-  <path d="M235 413 351 529" stroke="#5b9bd4" stroke-width="34" stroke-linecap="round"/>
-  <text x="203" y="515" fill="#727477" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" transform="rotate(45 203 515)">MONTAGE SERVICE</text>
-  <text x="242" y="570" fill="#5b9bd4" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="800" transform="rotate(45 242 570)">KOHLERT</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="msk-logo-title msk-logo-desc">
+  <title id="msk-logo-title">MSK Montage Service Kohlert</title>
+  <desc id="msk-logo-desc">Markenzeichen aus grauem Winkel, blauer Dachlinie, MSK-Wortmarke und blauem Akzentpunkt.</desc>
+  <defs>
+    <linearGradient id="mskBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5d9ad1"/>
+      <stop offset="100%" stop-color="#2e6fa8"/>
+    </linearGradient>
+    <linearGradient id="mskGray" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a8abaa"/>
+      <stop offset="100%" stop-color="#6c7174"/>
+    </linearGradient>
+    <style><![CDATA[
+      .a-angle {
+        stroke-dasharray: 360;
+        stroke-dashoffset: 360;
+        animation: msk-dash 1.4s cubic-bezier(.55,.05,.2,.95) .15s forwards;
+      }
+      .a-roof {
+        stroke-dasharray: 220;
+        stroke-dashoffset: 220;
+        animation: msk-dash 1s cubic-bezier(.55,.05,.2,.95) .55s forwards;
+      }
+      .a-mono {
+        opacity: 0;
+        transform: translateY(10px);
+        animation: msk-rise .7s ease .95s forwards;
+      }
+      .a-dot {
+        opacity: 0;
+        transform-origin: 200px 56px;
+        animation:
+          msk-pop .55s cubic-bezier(.34,1.56,.64,1) 1.25s forwards,
+          msk-pulse 4s ease-in-out 2.4s infinite;
+      }
+      @keyframes msk-dash { to { stroke-dashoffset: 0; } }
+      @keyframes msk-rise { to { opacity: 1; transform: translateY(0); } }
+      @keyframes msk-pop {
+        0% { opacity: 0; transform: scale(0); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      @keyframes msk-pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .a-angle, .a-roof, .a-mono, .a-dot {
+          animation: none !important;
+          stroke-dashoffset: 0 !important;
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      }
+    ]]></style>
+  </defs>
+
+  <path class="a-angle"
+        d="M34 60 L34 206 L180 206"
+        fill="none"
+        stroke="url(#mskGray)"
+        stroke-width="14"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <path class="a-roof"
+        d="M58 95 L120 42 L182 95"
+        fill="none"
+        stroke="url(#mskBlue)"
+        stroke-width="14"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <g class="a-dot">
+    <circle cx="200" cy="56" r="13" fill="url(#mskBlue)"/>
+  </g>
+
+  <text class="a-mono"
+        x="120" y="172"
+        text-anchor="middle"
+        font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif"
+        font-weight="900"
+        font-size="84"
+        letter-spacing="-4"
+        fill="url(#mskBlue)">msk</text>
 </svg>
