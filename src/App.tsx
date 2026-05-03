@@ -365,7 +365,7 @@ function Header({
     <header className="site-header">
       <nav className="nav" aria-label="Hauptnavigation">
         <a className="brand" href="#" aria-label="MSK Montage Service Kohlert – Startseite">
-          <img src="/brand/msk-logo.svg" alt="" width="42" height="42" />
+          <img src="/brand/msk-logo.jpg" alt="" width="42" height="42" />
           <span className="brand-name">
             <strong>MSK</strong>
             <small>Montage Service Kohlert</small>
@@ -1177,7 +1177,7 @@ function Footer() {
         <div className="footer-grid">
           <div className="footer-col">
             <a className="brand" href="#" aria-label="MSK Startseite">
-              <img src="/brand/msk-logo.svg" alt="" width="52" height="52" />
+              <img src="/brand/msk-logo.jpg" alt="" width="52" height="52" />
               <span className="brand-name">
                 <strong>MSK</strong>
                 <small>Montage Service Kohlert</small>

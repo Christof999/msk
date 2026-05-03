@@ -370,6 +370,9 @@ main {
 .brand img {
   width: 42px;
   height: 42px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  border-radius: 6px;
 }
 
 .brand-name {
@@ -1833,6 +1836,9 @@ main {
 .footer-grid .brand img {
   width: 52px;
   height: 52px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  border-radius: 6px;
 }
 
 .footer-grid p {
