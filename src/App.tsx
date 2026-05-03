@@ -41,36 +41,111 @@ const navItems: { label: string; route: Route; href: string }[] = [
   { label: 'Kontakt', route: 'contact', href: '#kontakt' },
 ];
 
-const services = [
+type Service = {
+  icon: typeof Building2;
+  title: string;
+  text: string;
+  longText: string;
+  includes: string[];
+  images: string[];
+};
+
+const services: Service[] = [
   {
     icon: Building2,
     title: 'Balkone & Anlagenbau',
-    text: 'Planung, Demontage, Montage und saubere Umsetzung von Balkon- und Sommergartenprojekten – inklusive Statik-Abstimmung mit den Gewerken.',
+    text: 'Planung, Demontage und saubere Montage von Balkon- und Sommergartenprojekten – inklusive Statik-Abstimmung mit den Gewerken.',
+    longText:
+      'Ob neuer Anbau, Sanierung oder Komplettaustausch: Wir realisieren Balkone und Sommergärten von der Bestandsaufnahme bis zur Übergabe. Wir kümmern uns um Statik-Abstimmung, Demontage, Anker- und Konsolentechnik sowie die abschließende Montage von Geländer, Sichtschutz und Beleuchtung. Die Baustelle bleibt sauber, Termine werden eingehalten – auch wenn andere Gewerke parallel arbeiten.',
+    includes: [
+      'Bestandsaufnahme und Maßaufnahme vor Ort',
+      'Demontage von Bestandsbalkonen',
+      'Anker- und Konsolentechnik',
+      'Aluminium-, Stahl- und Holzkonstruktionen',
+      'Geländer, Sichtschutz und Beleuchtung',
+      'Statik- und Fachplanerabstimmung',
+    ],
+    images: ['IMG_0185.jpeg', 'IMG_0188.jpeg'],
   },
   {
     icon: Fence,
     title: 'Zaunbau & Sichtschutz',
     text: 'Robuste Zaunanlagen, Tore und Sichtschutzlösungen passend zu Haus, Garten und Bestand. Aluminium, Holz oder WPC.',
+    longText:
+      'Ein Zaun definiert das Grundstück und schützt es zugleich. Wir planen und montieren Anlagen, die zur Architektur, zum Garten und zur Nutzung passen – vom Doppelstabmatten-Zaun bis zur designorientierten Aluminium-Lamelle. Schiebe- oder Drehtore mit Antrieb sind ebenfalls Teil des Programms. Punktfundamente, Linienführung und Höhenausgleich werden sauber vorbereitet.',
+    includes: [
+      'Vermessung und Linienführung',
+      'Punktfundamente und Verankerung',
+      'Aluminium-, Stahl- oder Holz-Zaunfelder',
+      'Sichtschutz aus Lamellen oder WPC',
+      'Schiebe- und Drehtore mit Antrieb',
+      'Beschläge, Schlösser, Briefkastenanlagen',
+    ],
+    images: ['IMG_0190.jpeg', 'IMG_0193.jpeg'],
   },
   {
     icon: Home,
     title: 'Überdachungen',
-    text: 'Terrassenüberdachungen, Kaltwintergärten und wetterfeste Konstruktionen aus einer Hand – inklusive Beleuchtung und Beschattung auf Wunsch.',
+    text: 'Terrassenüberdachungen, Kaltwintergärten und wetterfeste Konstruktionen – inklusive Beleuchtung und Beschattung auf Wunsch.',
+    longText:
+      'Vom einfachen Vordach bis zum vollwertigen Kaltwintergarten: Wir konstruieren und montieren Überdachungen für ganzjährige Nutzung. Auf Wunsch ergänzen wir LED-Beleuchtung, Markisen oder Glasschiebewände. Regenrinne, Anschlüsse und Abdichtungen werden professionell ausgeführt, damit die Konstruktion langfristig dicht bleibt.',
+    includes: [
+      'Terrassenüberdachungen aus Aluminium',
+      'Kaltwintergärten mit Glas-Schiebeelementen',
+      'Vordächer für Eingang und Nebentüren',
+      'LED-Lichtbänder und Spots',
+      'Markisen und Beschattungssysteme',
+      'Regenrinne, Anschluss und Abdichtung',
+    ],
+    images: ['IMG_0195.jpeg', 'IMG_0198.jpeg'],
   },
   {
     icon: DoorOpen,
     title: 'Innenausbau',
     text: 'Türen, Böden, Fenster, Rollläden und Schreinerarbeiten mit Blick fürs Detail – sauber gemessen, sauber montiert.',
+    longText:
+      'Innenausbau heißt für uns: Maße ernst nehmen, Übergänge sauber lösen, Materialien sinnvoll kombinieren. Ob neue Türen mit Zarge, Massivholzboden oder Rollläden – wir kümmern uns um die saubere Montage inklusive Demontage des Bestands und besenreiner Übergabe. Schnittstellen zu Maler, Elektrik und Sanitär werden vorab koordiniert.',
+    includes: [
+      'Innen- und Wohnungstüren mit Zarge',
+      'Parkett, Laminat, Vinyl, Massivholz',
+      'Fenster und Rollläden inklusive Anschluss',
+      'Trockenbau-Anschlüsse und Leibungen',
+      'Maßgefertigte Einbaumöbel',
+      'Demontage und besenreine Übergabe',
+    ],
+    images: ['IMG_0200.jpeg', 'IMG_0203.jpeg'],
   },
   {
     icon: Hammer,
     title: 'Allgemeine Montage',
     text: 'Von der Einzelmontage bis zur Komplettlösung. MSK packt flexibel an, koordiniert Gewerke und liefert besenrein ab.',
+    longText:
+      'Wenn keiner weiß, wer es montiert, sind wir die richtige Adresse. Egal ob ein einzelnes Möbelstück, ein neues Treppengeländer oder ein komplettes Bauteilpaket – wir übernehmen die saubere, durchdachte Montage und koordinieren bei Bedarf weitere Gewerke. Werkzeug, Hebehilfen und Material kommen mit; vor Ort wird angepackt, nicht improvisiert.',
+    includes: [
+      'Einzelmontagen jeder Größenordnung',
+      'Aufmaß und Lieferkoordination',
+      'Schnittstelle zu Elektrik und Sanitär',
+      'Werkzeug- und Materiallogistik',
+      'Foto-Dokumentation auf Wunsch',
+      'Termintreue Werkstattarbeit',
+    ],
+    images: ['IMG_0205.jpeg', 'IMG_0208.jpeg'],
   },
   {
     icon: Trees,
     title: 'Außenbereich komplett',
     text: 'Balkon, Garten, Terrasse und Fassade werden funktional, langlebig und optisch stimmig zusammengeführt.',
+    longText:
+      'Wenn mehrere Außenbereiche zusammengehören sollen, denken wir das Bild gesamtheitlich: Balkon, Terrasse, Zaun und Fassade müssen zueinander passen. Wir koordinieren Materialien, Linien und Höhen so, dass am Ende ein stimmiges Außenbild entsteht – inklusive Beleuchtung, Außensteckdosen und Anschluss an Garten und Wege.',
+    includes: [
+      'Materialwahl und Designabstimmung',
+      'Terrassendielen aus Holz oder WPC',
+      'Sichtschutz und Bepflanzungsrahmen',
+      'Beleuchtung und Außensteckdosen',
+      'Mülltonnen- und Fahrradunterstände',
+      'Anschluss an Garten und Wege',
+    ],
+    images: ['IMG_0210.jpeg', 'IMG_0213.jpeg'],
   },
 ];
 
@@ -119,14 +194,57 @@ const processSteps = [
   },
 ];
 
+const materials = [
+  {
+    label: '01',
+    title: 'Aluminium & Stahl',
+    text: 'Pulverbeschichtete Profile, geschweißte Konstruktionen und Verzinkungen für tragende Bauteile. Wartungsarm und langlebig auch unter Wetterlast.',
+  },
+  {
+    label: '02',
+    title: 'Massivholz & Schreinerei',
+    text: 'Lärche, Eiche, Douglasie für den Außenbereich, Eiche und Buche für den Innenausbau. Sauberer Schreinerstandard, ehrliche Oberflächen.',
+  },
+  {
+    label: '03',
+    title: 'Glas, WPC & Verbund',
+    text: 'Sicherheitsglas für Geländer und Überdachung, WPC für pflegeleichte Dielen, Verbundwerkstoffe für komplexe Sichtschutzlösungen.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Wie läuft eine Anfrage ab?',
+    a: 'Telefon oder E-Mail genügt. Wir melden uns in der Regel binnen eines Werktags zurück, vereinbaren einen Termin vor Ort und erstellen anschließend ein verbindliches Angebot.',
+  },
+  {
+    q: 'Welche Region deckt MSK ab?',
+    a: 'Standort ist Weidenbach in Mittelfranken. Wir arbeiten regelmäßig im Großraum Ansbach, Triesdorf, Gunzenhausen und Umgebung. Größere Projekte auch außerhalb auf Anfrage.',
+  },
+  {
+    q: 'Übernehmt ihr Demontage und Entsorgung?',
+    a: 'Ja. Wir bauen bestehende Anlagen sauber zurück und kümmern uns auf Wunsch um die fachgerechte Entsorgung der Altmaterialien.',
+  },
+  {
+    q: 'Arbeitet MSK auch mit anderen Gewerken zusammen?',
+    a: 'Selbstverständlich. Bei Komplettprojekten koordinieren wir Schnittstellen zu Elektrik, Sanitär, Maler und Statik – damit auf der Baustelle nichts wartet.',
+  },
+  {
+    q: 'Wie schnell könnt ihr starten?',
+    a: 'Das hängt von Größe und Material ab. Kleine Montagen oft binnen weniger Wochen, Komplettprojekte mit längerer Vorlaufzeit – ehrliche Termine statt leerer Versprechen.',
+  },
+];
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [route, setRoute] = useState<Route>(() => getRouteFromHash());
+  const [activeServiceIdx, setActiveServiceIdx] = useState<number | null>(null);
 
   useEffect(() => {
     const onHashChange = () => {
       setRoute(getRouteFromHash());
       setMenuOpen(false);
+      setActiveServiceIdx(null);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
     window.addEventListener('hashchange', onHashChange);
@@ -143,6 +261,9 @@ function App() {
     setMenuOpen(false);
   };
 
+  const openService = (idx: number) => setActiveServiceIdx(idx);
+  const closeService = () => setActiveServiceIdx(null);
+
   return (
     <LazyMotion features={domAnimation}>
       <div className="site-shell">
@@ -155,7 +276,7 @@ function App() {
         />
         <main id="main-content" tabIndex={-1}>
           {route === 'services' ? (
-            <ServicesPage />
+            <ServicesPage onOpenService={openService} />
           ) : route === 'gallery' ? (
             <GalleryPage />
           ) : route === 'contact' ? (
@@ -165,11 +286,20 @@ function App() {
           ) : route === 'imprint' ? (
             <LegalPage type="imprint" />
           ) : (
-            <LandingPage onNavigate={navigate} />
+            <LandingPage onNavigate={navigate} onOpenService={openService} />
           )}
         </main>
         <Footer />
         <CookieBanner />
+        <AnimatePresence>
+          {activeServiceIdx !== null ? (
+            <ServiceModal
+              key={activeServiceIdx}
+              service={services[activeServiceIdx]}
+              onClose={closeService}
+            />
+          ) : null}
+        </AnimatePresence>
       </div>
     </LazyMotion>
   );
@@ -302,12 +432,18 @@ function Header({
    Landing
    ============================================================ */
 
-function LandingPage({ onNavigate }: { onNavigate: (r: Route) => void }) {
+function LandingPage({
+  onNavigate,
+  onOpenService,
+}: {
+  onNavigate: (r: Route) => void;
+  onOpenService: (idx: number) => void;
+}) {
   return (
     <>
       <Hero />
       <StatRow />
-      <ServicesTeaser onSeeAll={() => onNavigate('services')} />
+      <ServicesTeaser onSeeAll={() => onNavigate('services')} onOpenService={onOpenService} />
       <GalleryTeaser onSeeAll={() => onNavigate('gallery')} />
       <ReviewsSection />
       <ContactCTA onContact={() => onNavigate('contact')} />
@@ -318,25 +454,27 @@ function LandingPage({ onNavigate }: { onNavigate: (r: Route) => void }) {
 function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <div className="container reveal-stack">
-        <div className="hero-meta">
+      <div className="container">
+        <div className="hero-meta reveal-stack">
           <span className="eyebrow">MSK · Familienbetrieb seit 2019</span>
           <span className="hero-meta-locale">Weidenbach · Mittelfranken</span>
         </div>
 
-        <h1 id="hero-title">
-          Montage,<br />
-          die <em>hält</em>.
-        </h1>
+        <div className="hero-stack">
+          <div className="hero-copy reveal-stack">
+            <h1 id="hero-title">
+              Montage,<br />
+              die <em>hält</em>.
+            </h1>
 
-        <div className="hero-foot">
-          <div className="hero-actions">
-            <a className="button" href="#kontakt">
-              Projekt anfragen
-              <ArrowRight aria-hidden="true" />
-            </a>
-            <a className="button ghost" href="#galerie">
-              Arbeiten ansehen
+            <div className="hero-foot">
+              <div className="hero-actions">
+                <a className="button" href="#kontakt">
+                  Projekt anfragen
+                  <ArrowRight aria-hidden="true" />
+                </a>
+                <a className="button ghost" href="#galerie">
+                  Arbeiten ansehen
               <ArrowUpRight aria-hidden="true" />
             </a>
           </div>
@@ -353,8 +491,73 @@ function Hero() {
             </li>
           </ul>
         </div>
+          </div>
+
+          <HeroAnimation />
+        </div>
       </div>
     </section>
+  );
+}
+
+function HeroAnimation() {
+  return (
+    <m.div
+      className="hero-art-wrap"
+      initial={{ opacity: 0, scale: 0.96 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.7, delay: 0.25, ease: [0.2, 0.6, 0.2, 1] }}
+      aria-hidden="true"
+    >
+      <svg className="hero-art" viewBox="0 0 480 540" role="img" aria-label="Animation: Balkon-Aufriss wird Schritt für Schritt montiert">
+        <defs>
+          <pattern id="hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeOpacity="0.05" strokeWidth="1" />
+          </pattern>
+        </defs>
+
+        <rect className="art-frame" x="0" y="0" width="480" height="540" fill="url(#hero-grid)" />
+
+        <g className="art-roof-group">
+          <path className="art-roof" d="M70 150 L240 60 L410 150" />
+          <line className="art-roof-base" x1="50" y1="150" x2="430" y2="150" />
+        </g>
+
+        <line className="art-post art-post-l" x1="120" y1="150" x2="120" y2="430" />
+        <line className="art-post art-post-r" x1="360" y1="150" x2="360" y2="430" />
+
+        <line className="art-rail art-rail-1" x1="120" y1="240" x2="360" y2="240" />
+        <line className="art-rail art-rail-2" x1="120" y1="430" x2="360" y2="430" />
+        <line className="art-platform" x1="100" y1="448" x2="380" y2="448" />
+
+        <g className="art-bal-group">
+          {[155, 190, 225, 260, 295, 325].map((x) => (
+            <line key={x} x1={x} y1="240" x2={x} y2="430" />
+          ))}
+        </g>
+
+        <circle className="art-dot" cx="240" cy="60" r="8" />
+
+        <g className="art-dim">
+          <line x1="80" y1="150" x2="80" y2="430" />
+          <line x1="76" y1="150" x2="84" y2="150" />
+          <line x1="76" y1="430" x2="84" y2="430" />
+          <text x="80" y="294" textAnchor="middle">2,80</text>
+        </g>
+
+        <g className="art-dim-bottom">
+          <line x1="120" y1="478" x2="360" y2="478" />
+          <line x1="120" y1="474" x2="120" y2="482" />
+          <line x1="360" y1="474" x2="360" y2="482" />
+          <text x="240" y="498" textAnchor="middle">3,40</text>
+        </g>
+
+        <g className="art-label">
+          <text x="50" y="525">BALKON · ELEVATION 1:50</text>
+          <text x="430" y="525" textAnchor="end">MSK · 2026</text>
+        </g>
+      </svg>
+    </m.div>
   );
 }
 
@@ -373,7 +576,13 @@ function StatRow() {
   );
 }
 
-function ServicesTeaser({ onSeeAll }: { onSeeAll: () => void }) {
+function ServicesTeaser({
+  onSeeAll,
+  onOpenService,
+}: {
+  onSeeAll: () => void;
+  onOpenService: (idx: number) => void;
+}) {
   return (
     <section className="section" id="leistungen-teaser" aria-labelledby="services-teaser-title">
       <div className="container">
@@ -385,7 +594,6 @@ function ServicesTeaser({ onSeeAll }: { onSeeAll: () => void }) {
               Vom Balkon bis zum Boden – <em>aus einer Hand</em>.
             </>
           }
-          description="Sechs klar abgegrenzte Leistungsbereiche. Jede Baustelle wird vom selben Team begleitet, koordiniert und sauber übergeben."
           ctaHref="#leistungen"
           ctaLabel="Alle Leistungen"
           onCta={onSeeAll}
@@ -393,14 +601,26 @@ function ServicesTeaser({ onSeeAll }: { onSeeAll: () => void }) {
         />
 
         <div className="service-list">
-          {services.slice(0, 4).map((service, index) => (
-            <a className="service-row" key={service.title} href="#leistungen" onClick={onSeeAll}>
-              <span className="service-num">{String(index + 1).padStart(2, '0')}</span>
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-              <ChevronRight className="row-arrow" aria-hidden="true" />
-            </a>
-          ))}
+          {services.slice(0, 4).map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <button
+                className="service-row"
+                key={service.title}
+                type="button"
+                onClick={() => onOpenService(index)}
+                aria-label={`${service.title} – Details öffnen`}
+              >
+                <span className="service-num">{String(index + 1).padStart(2, '0')}</span>
+                <span className="service-icon" aria-hidden="true">
+                  <Icon />
+                </span>
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+                <ChevronRight className="row-arrow" aria-hidden="true" />
+              </button>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -523,7 +743,7 @@ function ContactCTA({ onContact }: { onContact: () => void }) {
    Subpages
    ============================================================ */
 
-function ServicesPage() {
+function ServicesPage({ onOpenService }: { onOpenService: (idx: number) => void }) {
   return (
     <>
       <PageHero
@@ -539,12 +759,51 @@ function ServicesPage() {
       <section className="section">
         <div className="container">
           <div className="service-list">
-            {services.map((service, index) => (
-              <article className="service-row" key={service.title}>
-                <span className="service-num">{String(index + 1).padStart(2, '0')}</span>
-                <h3>{service.title}</h3>
-                <p>{service.text}</p>
-                <span aria-hidden="true" />
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <button
+                  className="service-row"
+                  key={service.title}
+                  type="button"
+                  onClick={() => onOpenService(index)}
+                  aria-label={`${service.title} – Details öffnen`}
+                >
+                  <span className="service-num">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="service-icon" aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <h3>{service.title}</h3>
+                  <p>{service.text}</p>
+                  <span className="service-meta" aria-hidden="true">
+                    Details ansehen
+                  </span>
+                  <ChevronRight className="row-arrow" aria-hidden="true" />
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="section materials">
+        <div className="container">
+          <SectionHead
+            num="·"
+            label="Materialien"
+            title={
+              <>
+                Saubere Wahl.<br /> <em>Belastbare Substanz</em>.
+              </>
+            }
+            titleId="materials-title"
+          />
+          <div className="material-grid">
+            {materials.map((mat) => (
+              <article className="material-card" key={mat.title}>
+                <span className="material-num">{mat.label}</span>
+                <h3>{mat.title}</h3>
+                <p>{mat.text}</p>
               </article>
             ))}
           </div>
@@ -573,6 +832,29 @@ function ServicesPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <SectionHead
+            num="·"
+            label="Häufige Fragen"
+            title={
+              <>
+                Klare Antworten,<br /> <em>bevor es losgeht</em>.
+              </>
+            }
+            titleId="faq-title"
+          />
+          <dl className="faq-list">
+            {faqs.map((item) => (
+              <div className="faq-item" key={item.q}>
+                <dt>{item.q}</dt>
+                <dd>{item.a}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -992,6 +1274,109 @@ function CookieBanner() {
         </a>
       </div>
     </m.aside>
+  );
+}
+
+/* ============================================================
+   Service modal
+   ============================================================ */
+
+function ServiceModal({ service, onClose }: { service: Service; onClose: () => void }) {
+  const closeRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKey);
+    closeRef.current?.focus();
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [onClose]);
+
+  const Icon = service.icon;
+
+  return (
+    <m.div
+      className="modal-backdrop"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      onClick={onClose}
+    >
+      <m.div
+        className="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        initial={{ opacity: 0, y: 24, scale: 0.98 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 16, scale: 0.98 }}
+        transition={{ duration: 0.32, ease: [0.2, 0.6, 0.2, 1] }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          ref={closeRef}
+          className="modal-close"
+          type="button"
+          onClick={onClose}
+          aria-label="Schließen"
+        >
+          <X aria-hidden="true" />
+        </button>
+
+        <div className="modal-images">
+          {service.images.map((img, i) => (
+            <figure key={img}>
+              <LazyImage
+                src={`/Gallery/${img}`}
+                alt={`${service.title} – Referenzbild ${i + 1}`}
+                eager={i === 0}
+              />
+            </figure>
+          ))}
+        </div>
+
+        <header className="modal-head">
+          <span className="eyebrow no-rule">
+            <Icon aria-hidden="true" /> Leistung
+          </span>
+          <h2 id="modal-title">{service.title}</h2>
+        </header>
+
+        <div className="modal-body">
+          <p className="lead">{service.longText}</p>
+
+          <h3>Was wir umsetzen</h3>
+          <ul className="modal-list">
+            {service.includes.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+
+          <h3>Kurz und ehrlich</h3>
+          <p className="muted">
+            Sie schicken uns ein paar Fotos und Maße, wir melden uns mit einem Termin vor Ort und einem
+            verbindlichen Angebot zurück. Bis zur besenreinen Übergabe bleibt das Team gleich.
+          </p>
+        </div>
+
+        <footer className="modal-foot">
+          <a className="button" href="#kontakt" onClick={onClose}>
+            Anfrage starten
+            <ArrowRight aria-hidden="true" />
+          </a>
+          <button className="button ghost" type="button" onClick={onClose}>
+            Schließen
+          </button>
+        </footer>
+      </m.div>
+    </m.div>
   );
 }
 
