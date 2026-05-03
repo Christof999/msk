@@ -65,7 +65,7 @@ const services: Service[] = [
       'Geländer, Sichtschutz und Beleuchtung',
       'Statik- und Fachplanerabstimmung',
     ],
-    images: ['IMG_0185.jpeg', 'IMG_0188.jpeg'],
+    images: [],
   },
   {
     icon: Fence,
@@ -81,7 +81,7 @@ const services: Service[] = [
       'Schiebe- und Drehtore mit Antrieb',
       'Beschläge, Schlösser, Briefkastenanlagen',
     ],
-    images: ['IMG_0190.jpeg', 'IMG_0193.jpeg'],
+    images: [],
   },
   {
     icon: Home,
@@ -97,7 +97,7 @@ const services: Service[] = [
       'Markisen und Beschattungssysteme',
       'Regenrinne, Anschluss und Abdichtung',
     ],
-    images: ['IMG_0195.jpeg', 'IMG_0198.jpeg'],
+    images: [],
   },
   {
     icon: DoorOpen,
@@ -113,7 +113,7 @@ const services: Service[] = [
       'Maßgefertigte Einbaumöbel',
       'Demontage und besenreine Übergabe',
     ],
-    images: ['IMG_0200.jpeg', 'IMG_0203.jpeg'],
+    images: [],
   },
   {
     icon: Hammer,
@@ -129,7 +129,7 @@ const services: Service[] = [
       'Foto-Dokumentation auf Wunsch',
       'Termintreue Werkstattarbeit',
     ],
-    images: ['IMG_0205.jpeg', 'IMG_0208.jpeg'],
+    images: [],
   },
   {
     icon: Trees,
@@ -145,7 +145,7 @@ const services: Service[] = [
       'Mülltonnen- und Fahrradunterstände',
       'Anschluss an Garten und Wege',
     ],
-    images: ['IMG_0210.jpeg', 'IMG_0213.jpeg'],
+    images: [],
   },
 ];
 
@@ -461,165 +461,56 @@ function Hero() {
           <span className="hero-meta-locale">Weidenbach · Mittelfranken</span>
         </div>
 
-        <div className="hero-stack">
-          <div className="hero-copy reveal-stack">
-            <h1 id="hero-title">
-              Montage,<br />
-              die <em>hält</em>.
-            </h1>
+        <div className="hero-copy reveal-stack">
+          <h1 id="hero-title">
+            Montage,<br />
+            die <em>hält</em>.
+          </h1>
 
-            <p className="hero-sub">
-              Vom kostenlosen Vor-Ort-Termin bis zur besenreinen Übergabe –
-              <strong> Antwort binnen 24 Stunden</strong>.
-            </p>
+          <p className="hero-sub">
+            Vom kostenlosen Vor-Ort-Termin bis zur besenreinen Übergabe –
+            <strong> Antwort binnen 24 Stunden</strong>.
+          </p>
 
-            <div className="hero-foot">
-              <div className="hero-actions">
-                <a className="button" href="#kontakt">
-                  Kostenloses Angebot
-                  <ArrowRight aria-hidden="true" />
-                </a>
-                <a className="button ghost" href={`tel:${PHONE_TEL}`}>
-                  <Phone aria-hidden="true" />
-                  {PHONE_DISPLAY}
-                </a>
-              </div>
-
-              <ul className="hero-checks" aria-label="Kennzeichen von MSK">
-                <li>
-                  <BadgeCheck aria-hidden="true" /> Kostenloser Vor-Ort-Termin
-                </li>
-                <li>
-                  <BadgeCheck aria-hidden="true" /> Festpreis statt Überraschungen
-                </li>
-                <li>
-                  <BadgeCheck aria-hidden="true" /> Regional verankert in Weidenbach
-                </li>
-              </ul>
+          <div className="hero-foot">
+            <div className="hero-actions">
+              <a className="button" href="#kontakt">
+                Kostenloses Angebot
+                <ArrowRight aria-hidden="true" />
+              </a>
+              <a className="button ghost" href={`tel:${PHONE_TEL}`}>
+                <Phone aria-hidden="true" />
+                {PHONE_DISPLAY}
+              </a>
             </div>
-          </div>
 
-          <HeroAnimation />
+            <div className="hero-rating">
+              <span className="hero-rating-stars" aria-label="5 von 5 Sternen">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} aria-hidden="true" fill="currentColor" />
+                ))}
+              </span>
+              <div className="hero-rating-text">
+                <strong>5,0</strong>
+                <span>Google · 6 Bewertungen</span>
+              </div>
+            </div>
+
+            <ul className="hero-checks" aria-label="Kennzeichen von MSK">
+              <li>
+                <BadgeCheck aria-hidden="true" /> Kostenloser Vor-Ort-Termin
+              </li>
+              <li>
+                <BadgeCheck aria-hidden="true" /> Festpreis statt Überraschungen
+              </li>
+              <li>
+                <BadgeCheck aria-hidden="true" /> Regional verankert in Weidenbach
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function HeroAnimation() {
-  return (
-    <m.div
-      className="hero-art-wrap"
-      initial={{ opacity: 0, scale: 0.96 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.7, delay: 0.25, ease: [0.2, 0.6, 0.2, 1] }}
-      aria-hidden="true"
-    >
-      <svg
-        className="hero-art"
-        viewBox="0 0 480 540"
-        role="img"
-        aria-label="Animation: Eine Terrassenüberdachung wird Schritt für Schritt an ein Haus montiert"
-      >
-        <defs>
-          <pattern id="hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeOpacity="0.05" strokeWidth="1" />
-          </pattern>
-        </defs>
-
-        <rect className="art-frame" x="0" y="0" width="480" height="540" fill="url(#hero-grid)" />
-
-        {/* Ground */}
-        <line className="art-ground" x1="20" y1="450" x2="460" y2="450" />
-
-        {/* House: roof */}
-        <path className="art-house-roof" d="M80 250 L210 110 L340 250" />
-
-        {/* House: walls */}
-        <line className="art-house-wall art-wall-l" x1="100" y1="250" x2="100" y2="450" />
-        <line className="art-house-wall art-wall-r" x1="320" y1="250" x2="320" y2="450" />
-
-        {/* House: top edge between walls */}
-        <line className="art-house-eave" x1="100" y1="250" x2="320" y2="250" />
-
-        {/* Window */}
-        <g className="art-window">
-          <rect x="135" y="290" width="60" height="70" fill="none" />
-          <line x1="135" y1="325" x2="195" y2="325" />
-          <line x1="165" y1="290" x2="165" y2="360" />
-        </g>
-
-        {/* Door */}
-        <g className="art-door">
-          <rect x="225" y="320" width="65" height="130" fill="none" />
-          <circle cx="278" cy="388" r="2.5" />
-        </g>
-
-        {/* Canopy: ledger / wall attachment */}
-        <line className="art-canopy art-canopy-ledger" x1="320" y1="288" x2="324" y2="288" />
-
-        {/* Canopy: roof beam (slight slope outward for drainage) */}
-        <line className="art-canopy art-canopy-roof" x1="320" y1="288" x2="450" y2="305" />
-
-        {/* Canopy: under-trim */}
-        <line className="art-canopy art-canopy-trim" x1="320" y1="296" x2="450" y2="313" />
-
-        {/* Canopy: front post */}
-        <line className="art-canopy art-canopy-post" x1="450" y1="313" x2="450" y2="450" />
-
-        {/* Canopy: back-side ghost post (perspective hint) */}
-        <line className="art-canopy art-canopy-post-back" x1="385" y1="302" x2="385" y2="450" />
-
-        {/* Canopy: glass panels (vertical mullions) */}
-        <g className="art-glass-group">
-          <line x1="395" y1="305" x2="395" y2="448" />
-          <line x1="420" y1="307" x2="420" y2="448" />
-          <line x1="445" y1="312" x2="445" y2="450" />
-        </g>
-
-        {/* Attachment dot at ledger */}
-        <circle className="art-dot" cx="322" cy="288" r="7" />
-
-        {/* Dimension: canopy depth */}
-        <g className="art-dim">
-          <line x1="320" y1="478" x2="450" y2="478" />
-          <line x1="320" y1="474" x2="320" y2="482" />
-          <line x1="450" y1="474" x2="450" y2="482" />
-          <text x="385" y="498" textAnchor="middle">3,20</text>
-        </g>
-
-        {/* Dimension: canopy height */}
-        <g className="art-dim-side">
-          <line x1="468" y1="313" x2="468" y2="450" />
-          <line x1="464" y1="313" x2="472" y2="313" />
-          <line x1="464" y1="450" x2="472" y2="450" />
-          <text x="468" y="385" textAnchor="middle" transform="rotate(-90 468 385)">2,40</text>
-        </g>
-
-        {/* Label */}
-        <g className="art-label">
-          <text x="40" y="525">TERRASSENÜBERDACHUNG · DETAIL</text>
-          <text x="440" y="525" textAnchor="end">MSK · 2026</text>
-        </g>
-      </svg>
-
-      <m.div
-        className="hero-rating"
-        initial={{ opacity: 0, y: 12, scale: 0.94 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.55, delay: 1.4, ease: [0.34, 1.56, 0.64, 1] }}
-      >
-        <span className="hero-rating-stars" aria-label="5 von 5 Sternen">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} aria-hidden="true" fill="currentColor" />
-          ))}
-        </span>
-        <div className="hero-rating-text">
-          <strong>5,0</strong>
-          <span>Google · 6 Bewertungen</span>
-        </div>
-      </m.div>
-    </m.div>
   );
 }
 
@@ -1436,15 +1327,23 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
         </button>
 
         <div className="modal-images">
-          {service.images.map((img, i) => (
-            <figure key={img}>
-              <LazyImage
-                src={`/Gallery/${img}`}
-                alt={`${service.title} – Referenzbild ${i + 1}`}
-                eager={i === 0}
-              />
-            </figure>
-          ))}
+          {service.images.length > 0
+            ? service.images.map((img, i) => (
+                <figure key={img}>
+                  <LazyImage
+                    src={`/Gallery/${img}`}
+                    alt={`${service.title} – Referenzbild ${i + 1}`}
+                    eager={i === 0}
+                  />
+                </figure>
+              ))
+            : [0, 1].map((i) => (
+                <figure key={i}>
+                  <div className="img-placeholder" aria-hidden="true">
+                    <span>Bild folgt</span>
+                  </div>
+                </figure>
+              ))}
         </div>
 
         <header className="modal-head">
