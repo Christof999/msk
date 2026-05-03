@@ -290,6 +290,7 @@ function App() {
           )}
         </main>
         <Footer />
+        <MobileCTABar />
         <CookieBanner />
         <AnimatePresence>
           {activeServiceIdx !== null ? (
@@ -467,30 +468,35 @@ function Hero() {
               die <em>hält</em>.
             </h1>
 
+            <p className="hero-sub">
+              Vom kostenlosen Vor-Ort-Termin bis zur besenreinen Übergabe –
+              <strong> Antwort binnen 24 Stunden</strong>.
+            </p>
+
             <div className="hero-foot">
               <div className="hero-actions">
                 <a className="button" href="#kontakt">
-                  Projekt anfragen
+                  Kostenloses Angebot
                   <ArrowRight aria-hidden="true" />
                 </a>
-                <a className="button ghost" href="#galerie">
-                  Arbeiten ansehen
-              <ArrowUpRight aria-hidden="true" />
-            </a>
-          </div>
+                <a className="button ghost" href={`tel:${PHONE_TEL}`}>
+                  <Phone aria-hidden="true" />
+                  {PHONE_DISPLAY}
+                </a>
+              </div>
 
-          <ul className="hero-checks" aria-label="Kennzeichen von MSK">
-            <li>
-              <BadgeCheck aria-hidden="true" /> 20 Jahre Schreinerhandwerk
-            </li>
-            <li>
-              <BadgeCheck aria-hidden="true" /> Saubere, planbare Abwicklung
-            </li>
-            <li>
-              <BadgeCheck aria-hidden="true" /> Regional verankert in Weidenbach
-            </li>
-          </ul>
-        </div>
+              <ul className="hero-checks" aria-label="Kennzeichen von MSK">
+                <li>
+                  <BadgeCheck aria-hidden="true" /> Kostenloser Vor-Ort-Termin
+                </li>
+                <li>
+                  <BadgeCheck aria-hidden="true" /> Festpreis statt Überraschungen
+                </li>
+                <li>
+                  <BadgeCheck aria-hidden="true" /> Regional verankert in Weidenbach
+                </li>
+              </ul>
+            </div>
           </div>
 
           <HeroAnimation />
@@ -596,6 +602,23 @@ function HeroAnimation() {
           <text x="440" y="525" textAnchor="end">MSK · 2026</text>
         </g>
       </svg>
+
+      <m.div
+        className="hero-rating"
+        initial={{ opacity: 0, y: 12, scale: 0.94 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.55, delay: 1.4, ease: [0.34, 1.56, 0.64, 1] }}
+      >
+        <span className="hero-rating-stars" aria-label="5 von 5 Sternen">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <Star key={i} aria-hidden="true" fill="currentColor" />
+          ))}
+        </span>
+        <div className="hero-rating-text">
+          <strong>5,0</strong>
+          <span>Google · 6 Bewertungen</span>
+        </div>
+      </m.div>
     </m.div>
   );
 }
@@ -750,28 +773,56 @@ function ContactCTA({ onContact }: { onContact: () => void }) {
   return (
     <section className="section" aria-labelledby="cta-title">
       <div className="container">
-        <div className="cta-block">
-          <div>
-            <span className="eyebrow no-rule" style={{ color: 'rgba(246,243,236,0.65)' }}>
-              04 — Kontakt
+        <div className="cta-block cta-with-steps">
+          <div className="cta-copy">
+            <span className="eyebrow no-rule cta-eyebrow">
+              04 — In 3 Schritten zum Angebot
             </span>
-            <h2 id="cta-title" style={{ marginTop: '1rem' }}>
+            <h2 id="cta-title">
               Erzählen Sie uns,<br /> was <em>montiert werden soll</em>.
             </h2>
             <p>
-              Ein kurzer Anruf, eine kurze Mail, ein paar Fotos – wir melden uns zurück und planen den Termin
-              vor Ort.
+              Ein kurzer Anruf, eine Mail oder ein paar Fotos genügen –
+              <strong> Antwort binnen 24 Stunden</strong>, kostenlos und unverbindlich.
             </p>
+            <div className="cta-actions">
+              <a className="button cta-primary" href="#kontakt" onClick={onContact}>
+                Kostenloses Angebot
+                <ArrowRight aria-hidden="true" />
+              </a>
+              <a className="button ghost cta-call" href={`tel:${PHONE_TEL}`}>
+                <Phone aria-hidden="true" />
+                {PHONE_DISPLAY}
+              </a>
+            </div>
           </div>
-          <div className="cta-actions">
-            <a className="button" href="#kontakt" onClick={onContact}>
-              Anfrage starten
-              <ArrowRight aria-hidden="true" />
-            </a>
-            <a className="button ghost" href={`tel:${PHONE_TEL}`}>
-              {PHONE_DISPLAY}
-            </a>
-          </div>
+
+          <ol className="cta-steps">
+            <li>
+              <span className="cta-step-num">01</span>
+              <div>
+                <h3>Anfrage senden</h3>
+                <p>Telefon, Mail oder Formular – Maße und Fotos helfen uns sofort.</p>
+                <span className="cta-step-meta">≈ 2 Minuten</span>
+              </div>
+            </li>
+            <li>
+              <span className="cta-step-num">02</span>
+              <div>
+                <h3>Vor-Ort-Termin</h3>
+                <p>Wir kommen unverbindlich vorbei und besprechen die Möglichkeiten.</p>
+                <span className="cta-step-meta">Kostenlos</span>
+              </div>
+            </li>
+            <li>
+              <span className="cta-step-num">03</span>
+              <div>
+                <h3>Verbindliches Angebot</h3>
+                <p>Klar, transparent, zum Festpreis – ohne Überraschungen.</p>
+                <span className="cta-step-meta">≈ 3 Werktage</span>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
@@ -1273,6 +1324,21 @@ function Footer() {
   );
 }
 
+function MobileCTABar() {
+  return (
+    <div className="mobile-cta-bar" role="region" aria-label="Schnellkontakt">
+      <a className="mcb-button mcb-call" href={`tel:${PHONE_TEL}`}>
+        <Phone aria-hidden="true" />
+        Anrufen
+      </a>
+      <a className="mcb-button mcb-cta" href="#kontakt">
+        Anfrage
+        <ArrowRight aria-hidden="true" />
+      </a>
+    </div>
+  );
+}
+
 function CookieBanner() {
   const [visible, setVisible] = useState(() => {
     if (typeof window === 'undefined') return false;
@@ -1407,10 +1473,14 @@ function ServiceModal({ service, onClose }: { service: Service; onClose: () => v
 
         <footer className="modal-foot">
           <a className="button" href="#kontakt" onClick={onClose}>
-            Anfrage starten
+            Diese Leistung anfragen
             <ArrowRight aria-hidden="true" />
           </a>
-          <button className="button ghost" type="button" onClick={onClose}>
+          <a className="button ghost" href={`tel:${PHONE_TEL}`}>
+            <Phone aria-hidden="true" />
+            {PHONE_DISPLAY}
+          </a>
+          <button className="modal-close-text" type="button" onClick={onClose}>
             Schließen
           </button>
         </footer>
