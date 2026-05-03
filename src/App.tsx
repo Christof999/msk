@@ -509,7 +509,12 @@ function HeroAnimation() {
       transition={{ duration: 0.7, delay: 0.25, ease: [0.2, 0.6, 0.2, 1] }}
       aria-hidden="true"
     >
-      <svg className="hero-art" viewBox="0 0 480 540" role="img" aria-label="Animation: Balkon-Aufriss wird Schritt für Schritt montiert">
+      <svg
+        className="hero-art"
+        viewBox="0 0 480 540"
+        role="img"
+        aria-label="Animation: Eine Terrassenüberdachung wird Schritt für Schritt an ein Haus montiert"
+      >
         <defs>
           <pattern id="hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
             <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeOpacity="0.05" strokeWidth="1" />
@@ -518,43 +523,77 @@ function HeroAnimation() {
 
         <rect className="art-frame" x="0" y="0" width="480" height="540" fill="url(#hero-grid)" />
 
-        <g className="art-roof-group">
-          <path className="art-roof" d="M70 150 L240 60 L410 150" />
-          <line className="art-roof-base" x1="50" y1="150" x2="430" y2="150" />
+        {/* Ground */}
+        <line className="art-ground" x1="20" y1="450" x2="460" y2="450" />
+
+        {/* House: roof */}
+        <path className="art-house-roof" d="M80 250 L210 110 L340 250" />
+
+        {/* House: walls */}
+        <line className="art-house-wall art-wall-l" x1="100" y1="250" x2="100" y2="450" />
+        <line className="art-house-wall art-wall-r" x1="320" y1="250" x2="320" y2="450" />
+
+        {/* House: top edge between walls */}
+        <line className="art-house-eave" x1="100" y1="250" x2="320" y2="250" />
+
+        {/* Window */}
+        <g className="art-window">
+          <rect x="135" y="290" width="60" height="70" fill="none" />
+          <line x1="135" y1="325" x2="195" y2="325" />
+          <line x1="165" y1="290" x2="165" y2="360" />
         </g>
 
-        <line className="art-post art-post-l" x1="120" y1="150" x2="120" y2="430" />
-        <line className="art-post art-post-r" x1="360" y1="150" x2="360" y2="430" />
-
-        <line className="art-rail art-rail-1" x1="120" y1="240" x2="360" y2="240" />
-        <line className="art-rail art-rail-2" x1="120" y1="430" x2="360" y2="430" />
-        <line className="art-platform" x1="100" y1="448" x2="380" y2="448" />
-
-        <g className="art-bal-group">
-          {[155, 190, 225, 260, 295, 325].map((x) => (
-            <line key={x} x1={x} y1="240" x2={x} y2="430" />
-          ))}
+        {/* Door */}
+        <g className="art-door">
+          <rect x="225" y="320" width="65" height="130" fill="none" />
+          <circle cx="278" cy="388" r="2.5" />
         </g>
 
-        <circle className="art-dot" cx="240" cy="60" r="8" />
+        {/* Canopy: ledger / wall attachment */}
+        <line className="art-canopy art-canopy-ledger" x1="320" y1="288" x2="324" y2="288" />
 
+        {/* Canopy: roof beam (slight slope outward for drainage) */}
+        <line className="art-canopy art-canopy-roof" x1="320" y1="288" x2="450" y2="305" />
+
+        {/* Canopy: under-trim */}
+        <line className="art-canopy art-canopy-trim" x1="320" y1="296" x2="450" y2="313" />
+
+        {/* Canopy: front post */}
+        <line className="art-canopy art-canopy-post" x1="450" y1="313" x2="450" y2="450" />
+
+        {/* Canopy: back-side ghost post (perspective hint) */}
+        <line className="art-canopy art-canopy-post-back" x1="385" y1="302" x2="385" y2="450" />
+
+        {/* Canopy: glass panels (vertical mullions) */}
+        <g className="art-glass-group">
+          <line x1="395" y1="305" x2="395" y2="448" />
+          <line x1="420" y1="307" x2="420" y2="448" />
+          <line x1="445" y1="312" x2="445" y2="450" />
+        </g>
+
+        {/* Attachment dot at ledger */}
+        <circle className="art-dot" cx="322" cy="288" r="7" />
+
+        {/* Dimension: canopy depth */}
         <g className="art-dim">
-          <line x1="80" y1="150" x2="80" y2="430" />
-          <line x1="76" y1="150" x2="84" y2="150" />
-          <line x1="76" y1="430" x2="84" y2="430" />
-          <text x="80" y="294" textAnchor="middle">2,80</text>
+          <line x1="320" y1="478" x2="450" y2="478" />
+          <line x1="320" y1="474" x2="320" y2="482" />
+          <line x1="450" y1="474" x2="450" y2="482" />
+          <text x="385" y="498" textAnchor="middle">3,20</text>
         </g>
 
-        <g className="art-dim-bottom">
-          <line x1="120" y1="478" x2="360" y2="478" />
-          <line x1="120" y1="474" x2="120" y2="482" />
-          <line x1="360" y1="474" x2="360" y2="482" />
-          <text x="240" y="498" textAnchor="middle">3,40</text>
+        {/* Dimension: canopy height */}
+        <g className="art-dim-side">
+          <line x1="468" y1="313" x2="468" y2="450" />
+          <line x1="464" y1="313" x2="472" y2="313" />
+          <line x1="464" y1="450" x2="472" y2="450" />
+          <text x="468" y="385" textAnchor="middle" transform="rotate(-90 468 385)">2,40</text>
         </g>
 
+        {/* Label */}
         <g className="art-label">
-          <text x="50" y="525">BALKON · ELEVATION 1:50</text>
-          <text x="430" y="525" textAnchor="end">MSK · 2026</text>
+          <text x="40" y="525">TERRASSENÜBERDACHUNG · DETAIL</text>
+          <text x="440" y="525" textAnchor="end">MSK · 2026</text>
         </g>
       </svg>
     </m.div>

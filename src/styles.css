@@ -546,90 +546,147 @@ main {
 
 .hero-art .art-frame {
   opacity: 0;
-  animation: hero-fade 0.6s ease 0.2s forwards;
+  animation: hero-fade 0.6s ease 0.15s forwards;
 }
 
-.hero-art .art-roof {
+/* Ground line draws first */
+.hero-art .art-ground {
+  stroke: var(--muted-2);
+  stroke-width: 1;
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  animation: hero-dash 0.8s ease 0.3s forwards;
+}
+
+/* House: roof, walls, eave (drawn 0.5s -> 1.5s) */
+.hero-art .art-house-roof {
   fill: none;
   stroke: var(--ink);
   stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 480;
-  stroke-dashoffset: 480;
-  animation: hero-dash 1.2s cubic-bezier(.55,.05,.2,1) 0.4s forwards;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: hero-dash 1s cubic-bezier(.55,.05,.2,1) 0.55s forwards;
 }
 
-.hero-art .art-roof-base {
-  stroke: var(--ink);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-dasharray: 380;
-  stroke-dashoffset: 380;
-  animation: hero-dash 0.8s ease 0.65s forwards;
-}
-
-.hero-art .art-post {
+.hero-art .art-house-wall {
   stroke: var(--ink);
   stroke-width: 3;
   stroke-linecap: round;
-  stroke-dasharray: 290;
-  stroke-dashoffset: 290;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
 }
-.hero-art .art-post-l { animation: hero-dash 0.8s ease 0.85s forwards; }
-.hero-art .art-post-r { animation: hero-dash 0.8s ease 1s forwards; }
+.hero-art .art-wall-l { animation: hero-dash 0.8s ease 0.95s forwards; }
+.hero-art .art-wall-r { animation: hero-dash 0.8s ease 1.05s forwards; }
 
-.hero-art .art-rail {
+.hero-art .art-house-eave {
   stroke: var(--ink);
   stroke-width: 2;
   stroke-linecap: round;
-  stroke-dasharray: 260;
-  stroke-dashoffset: 260;
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  animation: hero-dash 0.6s ease 1.2s forwards;
 }
-.hero-art .art-rail-1 { animation: hero-dash 0.6s ease 1.2s forwards; }
-.hero-art .art-rail-2 { stroke-width: 3; animation: hero-dash 0.6s ease 1.3s forwards; }
 
-.hero-art .art-platform {
+/* Window + Door fade in */
+.hero-art .art-window rect,
+.hero-art .art-window line,
+.hero-art .art-door rect {
   stroke: var(--ink);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-art .art-door circle {
+  fill: var(--ink);
+}
+
+.hero-art .art-window {
+  opacity: 0;
+  animation: hero-fade 0.5s ease 1.45s forwards;
+}
+
+.hero-art .art-door {
+  opacity: 0;
+  animation: hero-fade 0.5s ease 1.55s forwards;
+}
+
+/* Canopy elements (start ~1.8s) */
+.hero-art .art-canopy {
+  fill: none;
+  stroke: var(--accent);
   stroke-width: 3;
   stroke-linecap: round;
-  stroke-dasharray: 320;
-  stroke-dashoffset: 320;
-  animation: hero-dash 0.65s ease 1.4s forwards;
+  stroke-linejoin: round;
 }
 
-.hero-art .art-bal-group line {
+.hero-art .art-canopy-roof {
+  stroke-width: 3.5;
+  stroke-dasharray: 140;
+  stroke-dashoffset: 140;
+  animation: hero-dash 0.75s cubic-bezier(.55,.05,.2,1) 1.85s forwards;
+}
+
+.hero-art .art-canopy-trim {
+  stroke-width: 2;
+  stroke-dasharray: 140;
+  stroke-dashoffset: 140;
+  animation: hero-dash 0.6s ease 2.05s forwards;
+}
+
+.hero-art .art-canopy-ledger {
+  stroke-width: 5;
+  opacity: 0;
+  animation: hero-fade 0.3s ease 1.85s forwards;
+}
+
+.hero-art .art-canopy-post {
+  stroke-width: 3.5;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  animation: hero-dash 0.6s ease 2.2s forwards;
+}
+
+.hero-art .art-canopy-post-back {
+  stroke-width: 2;
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
+  opacity: 0.4;
+  animation: hero-dash 0.55s ease 2.35s forwards;
+}
+
+.hero-art .art-glass-group line {
   stroke: var(--muted);
-  stroke-width: 2;
+  stroke-width: 1.5;
   stroke-linecap: round;
   opacity: 0;
   transform: translateY(8px);
-  animation: hero-rise 0.5s cubic-bezier(.34,1.56,.64,1) forwards;
+  animation: hero-rise 0.45s cubic-bezier(.34,1.56,.64,1) forwards;
 }
-.hero-art .art-bal-group line:nth-child(1) { animation-delay: 1.55s; }
-.hero-art .art-bal-group line:nth-child(2) { animation-delay: 1.62s; }
-.hero-art .art-bal-group line:nth-child(3) { animation-delay: 1.69s; }
-.hero-art .art-bal-group line:nth-child(4) { animation-delay: 1.76s; }
-.hero-art .art-bal-group line:nth-child(5) { animation-delay: 1.83s; }
-.hero-art .art-bal-group line:nth-child(6) { animation-delay: 1.9s; }
+.hero-art .art-glass-group line:nth-child(1) { animation-delay: 2.5s; }
+.hero-art .art-glass-group line:nth-child(2) { animation-delay: 2.58s; }
+.hero-art .art-glass-group line:nth-child(3) { animation-delay: 2.66s; }
 
 .hero-art .art-dot {
   fill: var(--accent);
   opacity: 0;
-  transform-origin: 240px 60px;
+  transform-origin: 322px 288px;
   animation:
-    hero-pop 0.5s cubic-bezier(.34,1.56,.64,1) 2s forwards,
-    hero-pulse 3.4s ease 2.8s infinite;
+    hero-pop 0.5s cubic-bezier(.34,1.56,.64,1) 2.75s forwards,
+    hero-pulse 3.4s ease 3.6s infinite;
 }
 
 .hero-art .art-dim line,
-.hero-art .art-dim-bottom line {
+.hero-art .art-dim-side line {
   stroke: var(--muted-2);
   stroke-width: 1;
 }
 
 .hero-art .art-dim text,
-.hero-art .art-dim-bottom text {
+.hero-art .art-dim-side text {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.04em;
@@ -637,9 +694,9 @@ main {
 }
 
 .hero-art .art-dim,
-.hero-art .art-dim-bottom {
+.hero-art .art-dim-side {
   opacity: 0;
-  animation: hero-fade 0.6s ease 2.1s forwards;
+  animation: hero-fade 0.6s ease 2.95s forwards;
 }
 
 .hero-art .art-label text {
@@ -652,7 +709,7 @@ main {
 
 .hero-art .art-label {
   opacity: 0;
-  animation: hero-fade 0.6s ease 2.3s forwards;
+  animation: hero-fade 0.6s ease 3.15s forwards;
 }
 
 @keyframes hero-dash { to { stroke-dashoffset: 0; } }
