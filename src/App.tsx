@@ -29,7 +29,7 @@ const ADDRESS = 'Dr.-Müller-Str. 26 a, 91746 Weidenbach';
 const MAPS_URL =
   'https://maps.google.com/?q=Dr.-M%C3%BCller-Stra%C3%9Fe%2026A%2C%2091746%20Weidenbach';
 
-type Route = 'home' | 'services' | 'gallery' | 'contact' | 'privacy' | 'imprint';
+type Route = 'home' | 'services' | 'gallery' | 'career' | 'contact' | 'privacy' | 'imprint';
 
 const galleryImages = Array.from({ length: 31 }, (_, i) =>
   `IMG_${String(185 + i).padStart(4, '0')}.jpeg`,
@@ -38,6 +38,7 @@ const galleryImages = Array.from({ length: 31 }, (_, i) =>
 const navItems: { label: string; route: Route; href: string }[] = [
   { label: 'Leistungen', route: 'services', href: '#leistungen' },
   { label: 'Galerie', route: 'gallery', href: '#galerie' },
+  { label: 'Karriere', route: 'career', href: '#karriere' },
   { label: 'Kontakt', route: 'contact', href: '#kontakt' },
 ];
 
@@ -176,6 +177,56 @@ const stats = [
   { value: '2019', label: 'als Familienbetrieb selbstständig' },
 ];
 
+const careerStats = [
+  { value: 'Allrounder', label: 'für Montage, Ausbau und Außenbereiche' },
+  { value: 'Team', label: 'dynamisch, direkt und wachstumsorientiert' },
+  { value: 'Leistung', label: 'faire Konditionen mit spürbarer Perspektive' },
+];
+
+const careerBenefits = [
+  {
+    label: '01',
+    title: 'Attraktive Konditionen',
+    text: 'Leistungsorientierte Bezahlung, klare Absprachen und die Chance, mit Verantwortung auch persönlich mitzuwachsen.',
+  },
+  {
+    label: '02',
+    title: 'Abwechslungsreiche Projekte',
+    text: 'Balkone, Zäune, Überdachungen, Innenausbau und Sondermontagen – kein Tag läuft nach Schema F.',
+  },
+  {
+    label: '03',
+    title: 'Kurze Wege im Team',
+    text: 'Direkte Kommunikation, moderne Werkzeuge und ein Chef, der selbst mit anpackt statt nur zu delegieren.',
+  },
+];
+
+const careerProfile = [
+  'Handwerkliches Geschick und Freude an sauberer Montage',
+  'Lust auf wechselnde Projekte im Innen- und Außenbereich',
+  'Zuverlässigkeit, Teamgeist und eine ehrliche Arbeitsweise',
+  'Eigenständiges Denken, wenn auf der Baustelle pragmatische Lösungen gefragt sind',
+  'Führerschein Klasse B ist hilfreich, Erfahrung im Schreiner- oder Montagebereich ein Plus',
+];
+
+const careerProcess = [
+  {
+    label: 'Schritt 01',
+    title: 'Kurz melden.',
+    text: 'Ein Anruf oder eine kurze Mail genügt. Lebenslauf ist gut, ein ehrliches Gespräch ist wichtiger.',
+  },
+  {
+    label: 'Schritt 02',
+    title: 'Kennenlernen.',
+    text: 'Wir sprechen über Erfahrung, Ziele, Konditionen und schauen gemeinsam, ob die Chemie passt.',
+  },
+  {
+    label: 'Schritt 03',
+    title: 'Mit anpacken.',
+    text: 'Wenn es passt, starten wir pragmatisch – mit echten Projekten, klarer Anleitung und Verantwortung.',
+  },
+];
+
 const processSteps = [
   {
     label: 'Schritt 01',
@@ -279,6 +330,8 @@ function App() {
             <ServicesPage onOpenService={openService} />
           ) : route === 'gallery' ? (
             <GalleryPage />
+          ) : route === 'career' ? (
+            <CareerPage />
           ) : route === 'contact' ? (
             <ContactPage />
           ) : route === 'privacy' ? (
@@ -312,6 +365,8 @@ function routeToHash(route: Route): string {
       return 'leistungen';
     case 'gallery':
       return 'galerie';
+    case 'career':
+      return 'karriere';
     case 'contact':
       return 'kontakt';
     case 'privacy':
@@ -331,6 +386,8 @@ function getRouteFromHash(): Route {
       return 'services';
     case 'galerie':
       return 'gallery';
+    case 'karriere':
+      return 'career';
     case 'kontakt':
       return 'contact';
     case 'datenschutz':
@@ -908,6 +965,154 @@ function GalleryPage() {
   );
 }
 
+function CareerPage() {
+  return (
+    <>
+      <PageHero
+        crumb="Karriere"
+        title={
+          <>
+            Handwerklicher <em>Allrounder</em> gesucht.
+          </>
+        }
+        lead="Keine klassische Stellenanzeige, sondern eine Einladung: MSK sucht jemanden, der handwerklich stark ist, gerne mitdenkt und Lust hat, in einem dynamischen Team richtig Gas zu geben."
+      />
+
+      <section className="container section-tight" aria-label="Karriere-Kennzahlen">
+        <div className="stat-row career-stat-row">
+          {careerStats.map((stat) => (
+            <div className="stat" key={stat.value}>
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <SectionHead
+            num="01"
+            label="Jobprofil"
+            title={
+              <>
+                Anpacken, mitdenken, <em>richtig Gas geben</em>.
+              </>
+            }
+            description="Wir suchen keinen Spezialisten für nur eine Aufgabe, sondern einen vielseitigen Kopf mit guten Händen: jemand, der Montage versteht, Lösungen findet und im Team zuverlässig abliefert."
+            titleId="career-profile-title"
+          />
+
+          <div className="career-split">
+            <article className="career-card career-card-strong">
+              <span className="eyebrow no-rule">
+                <Hammer aria-hidden="true" /> Das bringst du mit
+              </span>
+              <h3>Du bist handwerklich begabt, pragmatisch und hast Lust auf echte Projekte.</h3>
+              <ul className="career-check-list">
+                {careerProfile.map((item) => (
+                  <li key={item}>
+                    <BadgeCheck aria-hidden="true" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            <article className="career-card">
+              <h3>Worum es bei MSK geht</h3>
+              <p>
+                Wir montieren, bauen aus, sanieren und lösen Aufgaben dort, wo andere Gewerke oft
+                aufhören. Bei uns zählt saubere Arbeit, Verlässlichkeit und die Bereitschaft, gemeinsam
+                jeden Tag besser zu werden.
+              </p>
+              <p>
+                Wenn du gern draußen und drinnen arbeitest, Verantwortung übernehmen willst und ein
+                wachsendes Team suchst, in dem Leistung gesehen wird, dann sollten wir sprechen.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section materials">
+        <div className="container">
+          <SectionHead
+            num="02"
+            label="Was dich erwartet"
+            title={
+              <>
+                Faire Bedingungen,<br /> <em>starke Perspektive</em>.
+              </>
+            }
+            titleId="career-benefits-title"
+          />
+          <div className="material-grid">
+            {careerBenefits.map((benefit) => (
+              <article className="material-card" key={benefit.title}>
+                <span className="material-num">{benefit.label}</span>
+                <h3>{benefit.title}</h3>
+                <p>{benefit.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <SectionHead
+            num="03"
+            label="Bewerbung"
+            title={
+              <>
+                Einfach starten.<br /> <em>Ohne Papierkram-Marathon</em>.
+              </>
+            }
+            description="Uns interessiert, wer du bist, was du kannst und worauf du Lust hast. Der erste Kontakt darf unkompliziert sein."
+            titleId="career-process-title"
+          />
+          <div className="process-grid">
+            {careerProcess.map((step) => (
+              <div className="process-step" key={step.title}>
+                <span className="step-num">{step.label}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="cta-block">
+            <div>
+              <h2>
+                Klingt nach dir? <em>Dann melde dich</em>.
+              </h2>
+              <p>
+                Schreib kurz, wer du bist und welche handwerkliche Erfahrung du mitbringst. Alternativ
+                einfach anrufen – wir sprechen direkt darüber, wie du ins Team passen könntest.
+              </p>
+            </div>
+            <div className="cta-actions">
+              <a className="button" href={`mailto:${EMAIL}?subject=Bewerbung%20bei%20MSK`}>
+                Per E-Mail bewerben
+                <Mail aria-hidden="true" />
+              </a>
+              <a className="button ghost" href={`tel:${PHONE_TEL}`}>
+                <Phone aria-hidden="true" />
+                Direkt anrufen
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
 function ContactPage() {
   return (
     <>
@@ -997,6 +1202,7 @@ function ContactForm() {
           <option>Zaun- und Außenbereich</option>
           <option>Überdachung</option>
           <option>Innenausbau</option>
+          <option>Bewerbung / Karriere</option>
         </select>
       </label>
       <label>
@@ -1192,6 +1398,7 @@ function Footer() {
             <h4>Navigation</h4>
             <a href="#leistungen">Leistungen</a>
             <a href="#galerie">Galerie</a>
+            <a href="#karriere">Karriere</a>
             <a href="#kontakt">Kontakt</a>
           </div>
           <div className="footer-col">
