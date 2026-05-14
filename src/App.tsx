@@ -1609,17 +1609,15 @@ function LazyImage({
   eager?: boolean;
 }) {
   const wrapperRef = useRef<HTMLSpanElement>(null);
-  const [shouldLoad, setShouldLoad] = useState(eager);
+  const supportsIntersectionObserver =
+    typeof window !== 'undefined' && 'IntersectionObserver' in window;
+  const [shouldLoad, setShouldLoad] = useState(() => eager || !supportsIntersectionObserver);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     if (eager || shouldLoad) return;
     const el = wrapperRef.current;
     if (!el) return;
-    if (typeof IntersectionObserver === 'undefined') {
-      setShouldLoad(true);
-      return;
-    }
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries.some((entry) => entry.isIntersecting)) {
